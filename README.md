@@ -1,8 +1,8 @@
-### Philosophers
+# Philosophers
 
 ## External functions
 
-# memset - fill a byte string with a byte value
+### memset - fill a byte string with a byte value
 SYNOPSIS
     #include <string.h>
     void	*memset(void *b, int c, size_t len);
@@ -14,7 +14,7 @@ RETURN VALUES
      The memset() function returns its first argument.
 
 
-# usleep - suspend thread execution for an interval measured in microseconds
+### usleep - suspend thread execution for an interval measured in microseconds
 SYNOPSIS
     #include <unistd.h>
     int		usleep(useconds_t microseconds);
@@ -26,7 +26,7 @@ DESCRIPTION
 RETURN VALUES
      The usleep() function returns the value 0 if successful; otherwise the value -1 is returned and the global variable errno is set to indicate the error.
 
-# gettimeofday - get date and time
+### gettimeofday - get date and time
 SYNOPSIS
     #include <sys/time.h>
     int		gettimeofday(struct timeval *restrict tp, void *restrict tzp);
@@ -43,12 +43,12 @@ DESCRIPTION
 RETURN
      A 0 return value indicates that the call succeeded.  A -1 return value indicates an error occurred, and in this case an error code is stored into the global variable errno.
 
-# pthread_create - create a new thread
+### pthread_create - create a new thread
 SYNOPSIS
      #include <pthread.h>
      int	pthread_create(pthread_t *thread, const pthread_attr_t *attr, void *(*start_routine)(void *), void *arg);
 
-ESCRIPTION
+DESCRIPTION
      The pthread_create() function is used to create a new thread, with attributes specified by attr, within a process.  If attr is NULL, the default attributes are used.  If the attributes specifie attr
      are modified later, the thread's attributes are not affected.  Upon successful completion pthread_create() will store the ID of the created thread in the location specified by thread.
 
@@ -67,7 +67,7 @@ ESCRIPTION
 RETURN VALUES
      If successful, the pthread_create() function will return zero.  Otherwise an error number will be returned to indicate the error.
 
-# pthread_detach - detach (ablösen) a thread
+### pthread_detach - detach (ablösen) a thread
 SYNOPSIS
      #include <pthread.h>
      int	pthread_detach(pthread_t thread);
@@ -80,7 +80,7 @@ DESCRIPTION
 RETURN VALUES
      If successful, the pthread_detach() function will return zero.  Otherwise an error number will be returned to indicate the error.  Note that the function does not change the value of errno as it did for some drafts of the standard.  These early drafts also passed a pointer to pthread_t as the argument.  Beware!
 
-# pthread_join - wait for thread termination
+### pthread_join - wait for thread termination
 SYNOPSIS
      #include <pthread.h>
      int	pthread_join(pthread_t thread, void **value_ptr);
