@@ -4,8 +4,8 @@
 
 ### memset - fill a byte string with a byte value
 SYNOPSIS
-	#include <string.h>
-	void	*memset(void *b, int c, size_t len);
+    #include <string.h>
+    void	*memset(void *b, int c, size_t len);
 
 DESCRIPTION
 	The memset() function writes len bytes of value c (converted to an unsigned char) to the string b.
@@ -134,4 +134,4 @@ RETURN VALUES
      If successful, pthread_mutex_unlock() will return zero, otherwise an error number will be returned to indicate the error.
 
 ## Input
-./philo : "number_of_philosophers" "time_to_die" "time_to_eat" "time_to_sleep" "[number_of_times_each_philosopher_must_eat]"
+./philo "number_of_philosophers" "time_to_die" "time_to_eat" "time_to_sleep" "[number_of_times_each_philosopher_must_eat]"
