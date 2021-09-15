@@ -1,5 +1,7 @@
 # Philosophers
 
+https://github.com/Gaspachow/philosophers-42/blob/master/philo_one/philo.h
+
 ## External functions
 
 ### memset - fill a byte string with a byte value

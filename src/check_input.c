@@ -6,28 +6,36 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/09/13 17:19:49 by julian           ###   ########.fr       */
+/*   Updated: 2021/09/15 09:26:58 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philosophers.h"
 
+static int	ft_isdigit(int c)
+{
+	if (c > 47 && c < 58)
+		return (1);
+	else
+		return (0);
+}
+
 static void	print_error(int i)
 {
-	if (i == 1 )
+	if (i == 1)
 	{
-		ft_putstr("Usage: ");
-		ft_putstr("./philo ");
-		ft_putstr("\"number_of_philosophers\" ");
-		ft_putstr("\"time_to_die [ms]\" ");
-		ft_putstr("\"time_to_eat [ms]\" ");
-		ft_putstr("\"time_to_sleep [ms]\" ");
-		ft_putstr("\"[number_of_times_each_philosopher_must_eat] ");
-		ft_putstr("(optional)\"\n");
+		printf("Usage: ");
+		printf("./philo ");
+		printf("\"number_of_philosophers\" ");
+		printf("\"time_to_die [ms]\" ");
+		printf("\"time_to_eat [ms]\" ");
+		printf("\"time_to_sleep [ms]\" ");
+		printf("\"[number_of_times_each_philosopher_must_eat] ");
+		printf("(optional)\"\n");
 	}
 	if (i == 2)
 	{
-		ft_putstr("arguments must be numbers only!\n");
+		printf("arguments must be numbers only!\n");
 	}
 }
 

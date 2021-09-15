@@ -6,7 +6,7 @@
 #    By: julian <julian@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 12:13:12 by jludt             #+#    #+#              #
-#    Updated: 2021/09/13 17:27:37 by julian           ###   ########.fr        #
+#    Updated: 2021/09/15 09:36:38 by julian           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,13 +29,9 @@ OBJ_DIR = ./obj/
 INC_DIR = ./includes/
 
 # Source files and object files
-SRC_FILES =	main.c			\
-			check_input.c	\
-			ft_atoi.c		\
-			ft_itoa.c		\
-			ft_isdigit.c	\
-			ft_putstr.c		\
-			ft_putchar.c
+SRC_FILES =	main.c					\
+			check_input.c			\
+			utils.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
 # Paths
@@ -53,19 +49,19 @@ $(OBJ_DIR)%.o:$(SRC_DIR)%.c
 
 # Compiling
 $(NAME): $(OBJ)
-	@echo "$(YELLOW)\n      -> Building $(BLUE)$(NAME) $(YELLOW)...$(RESET)"
+	@echo "$(YELLOW)\n      -> Building $(NAME) ...$(RESET)"
 	@gcc $(OBJ) -lm -o $(NAME)
 	@echo "$(GREEN)***   Project $(NAME) successfully compiled   ***\n$(RESET)"
 
 # clean rule
 clean:
-	@echo "$(GREEN)***   Deleting all objects from $(NAME)   ...   ***$(RESET)"
+	@echo "$(BLUE)***   Deleting all objects from $(NAME)   ...   ***$(RESET)"
 	@rm -Rf $(OBJ_DIR)
 	@echo
 
 # fclean rule
 fclean: clean
-	@echo "$(GREEN)***   Deleting executable file from $(NAME)   ...   ***$(RESET)"
+	@echo "$(BLUE)***   Deleting executable file from $(NAME)   ...   ***$(RESET)"
 	@rm -f $(NAME)
 	@echo
 

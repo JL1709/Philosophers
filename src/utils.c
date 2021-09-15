@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/13 11:48:33 by julian            #+#    #+#             */
-/*   Updated: 2021/09/13 11:48:42 by julian           ###   ########.fr       */
+/*   Created: 2021/09/15 09:35:47 by julian            #+#    #+#             */
+/*   Updated: 2021/09/15 09:46:44 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,17 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return (number * sign);
+}
+
+/*
+** The timeval structure specifies a time value in 
+** seconds (tv_sec [s]) and microseconds (tv_usec [μs])
+*/
+
+long long	get_timestamp()
+{
+	struct timeval	t;
+
+	gettimeofday(&t, NULL);
+	return ((t.tv_sec * 1000) + (t.tv_usec / 1000));
 }
