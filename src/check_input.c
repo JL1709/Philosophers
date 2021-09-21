@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/09/15 09:26:58 by julian           ###   ########.fr       */
+/*   Updated: 2021/09/21 15:01:10 by jludt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ static void	print_error(int i)
 {
 	if (i == 1)
 	{
-		printf("Usage: ");
+		printf(YELLOW"Usage: "RESET);
 		printf("./philo ");
 		printf("\"number_of_philosophers\" ");
 		printf("\"time_to_die [ms]\" ");
 		printf("\"time_to_eat [ms]\" ");
 		printf("\"time_to_sleep [ms]\" ");
-		printf("\"[number_of_times_each_philosopher_must_eat] ");
-		printf("(optional)\"\n");
+		printf(CYAN"\"[number_of_times_each_philosopher_must_eat]\" ");
+		printf("(optional)\n"RESET);
 	}
 	if (i == 2)
 	{
-		printf("arguments must be numbers only!\n");
+		printf(MAGENTA"All arguments must be positiv numbers!\n"RESET);
 	}
 }
 
