@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_input.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/09/21 15:01:10 by jludt            ###   ########.fr       */
+/*   Updated: 2021/09/22 16:25:12 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,25 +34,22 @@ static void	print_error(int i)
 		printf("(optional)\n"RESET);
 	}
 	if (i == 2)
-	{
-		printf(MAGENTA"All arguments must be positiv numbers!\n"RESET);
-	}
+		printf(YELLOW"All arguments must be positiv numbers!\n"RESET);
+	if (i == 3)
+		printf(YELLOW"Nice try, but go with at least one philosopher.\n"RESET);
 }
 
-int	check_input(int argc, char *argv[])
+static int	only_pos_nbrs(int argc, char *argv[])
 {
 	int	i;
 	int	j;
-	
-	if (argc < 5 || argc > 6)
-	{
-		print_error(1);
-		return (1);
-	}
+
 	i = 0;
 	while (++i < argc)
 	{
 		j = -1;
+		if (argv[i][0] == '+')
+			j++;
 		while (argv[i][++j] != '\0')
 		{
 			if (ft_isdigit(argv[i][j]) != 1)
@@ -61,6 +58,23 @@ int	check_input(int argc, char *argv[])
 				return (2);
 			}
 		}
+	}
+	return (0);
+}
+
+int	check_input(int argc, char *argv[])
+{
+	if (argc < 5 || argc > 6)
+	{
+		print_error(1);
+		return (1);
+	}
+	if (only_pos_nbrs(argc, argv) != 0)
+		return (2);
+	if (ft_atoi(argv[1]) < 1)
+	{
+		print_error(3);
+		return (3);
 	}
 	return (0);
 }

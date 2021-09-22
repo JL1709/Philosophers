@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:45:51 by julian            #+#    #+#             */
-/*   Updated: 2021/09/21 14:50:53 by jludt            ###   ########.fr       */
+/*   Updated: 2021/09/22 16:51:54 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,34 +36,30 @@
 ** noms	- number of must eat
 */
 
-struct s_input;
-
-typedef struct	s_philo
-{
-	int				id;
-	int				right_fork;
-	int				left_fork;
-	int				eat_count;
-	long long		last_meal;
-	pthread_t		thread;
-	struct s_input	*input;
-}				t_philo;
-
-typedef struct s_input
+typedef struct s_data
 {
 	int				nop;
 	int				ttd;
 	int				tte;
 	int				tts;
 	int				nome;
-	long long		start_time;
 	pthread_mutex_t	mutex_fork[242];
 	pthread_mutex_t	mutex_printing;
-	t_philo			philos[242];
-}			t_input;
+}			t_data;
+
+typedef struct	s_philo
+{
+	int				id;
+	long long		start_time;
+	int				right_fork;
+	int				left_fork;
+	int				eat_count;
+	long long		last_meal;
+	t_data			*data;
+}				t_philo;
 
 int			check_input(int argc, char *argv[]);
 int			ft_atoi(const char *str);
-long long	get_timestamp();
+long long	get_time();
 
 #endif

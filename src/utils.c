@@ -6,7 +6,7 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 09:35:47 by julian            #+#    #+#             */
-/*   Updated: 2021/09/15 09:46:44 by julian           ###   ########.fr       */
+/*   Updated: 2021/09/22 16:51:45 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	ft_atoi(const char *str)
 ** seconds (tv_sec [s]) and microseconds (tv_usec [μs])
 */
 
-long long	get_timestamp()
+long long	get_time()
 {
 	struct timeval	t;
 
