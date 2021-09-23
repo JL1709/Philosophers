@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:48:08 by julian            #+#    #+#             */
-/*   Updated: 2021/09/22 16:52:41 by julian           ###   ########.fr       */
+/*   Updated: 2021/09/23 18:02:36 by jludt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@
 // pthread_mutex_t	mutex_printing;
 // pthread_t		philo[242];
 
-void	printing(t_data *data, int id, char *s)
+void	printing(t_data *data, t_philo *philo, int id, char *s)
 {
 	pthread_mutex_lock(&(data->mutex_printing));
-	printf("%lld ", get_time() - data->start_time);
+	printf("%lld\t", get_time() - philo->start_time);
 	printf("%d %s", id, s);
 	pthread_mutex_unlock(&(data->mutex_printing));
 }
 
-void	grab_fork(t_data *data, int phil, int c)
+void	grab_fork(t_data *data, t_philo *philo, int phil, int c)
 {
 	pthread_mutex_lock(&(data->mutex_fork[c]));
-	printing(data, phil, "has taken a fork\n");
+	printing(data, philo, phil, "has taken a fork\n");
 }
 
 void	down_forks(t_data *data, int c1, int c2)
@@ -52,25 +52,33 @@ void	*philosopher(void *arg)
 	i = 0;
 	philo = (t_philo *)arg;
 	data = philo->data;
-	printf("id = %d\n", philo->id);
-	printf("ttd = %d\n", data->ttd);
+	// printf("id = %d\n", philo->id + 1);
+	// printf("ttd = %d\n", data->ttd);
 	philo->start_time = get_time();
-	
-	// if (philo->id % 2 == 0)
-	// 	usleep(10000);
-	// while (1)
-	// {
-	// 	grab_fork(data, philo->id, philo->right_fork);
-	// 	grab_fork(data, philo->id, philo->left_fork);
-	// 	printing(data, philo->id, "is eating\n");
-	// 	usleep(data->tte);
-	// 	if (philo->eat_count == data->nome)
-	// 		break ;
-	// 	down_forks(data, philo->left_fork, philo->right_fork);
-	// 	printing(data, philo->id, "is sleeping\n");
-	// 	usleep(data->tts);
-	// 	printing(data, philo->id, "is thinking\n");
-	// }
+	if (philo->id % 2 == 0)
+		usleep(10000);
+	while (philo->died != 1)
+	{
+		grab_fork(data, philo, philo->id, philo->right_fork);
+		grab_fork(data, philo, philo->id, philo->left_fork);
+		philo->last_meal = get_time();
+		printing(data, philo, philo->id, "is eating\n");
+		
+		//optimized_usleep(while(sleep 100)
+		
+		usleep(data->tte);
+		down_forks(data, philo->left_fork, philo->right_fork);
+		philo->eat_count++;
+		if (data->nome != -1)
+			if (philo->eat_count == data->nome)
+				break ;
+		printing(data, philo, philo->id, "is sleeping\n");
+		
+		usleep(data->tts);
+		printing(data, philo, philo->id, "is thinking\n");
+	}
+	// if (philo->died == 1)
+	// 	printing(data, philo, philo->id, "died\n");
 	return (NULL);
 }
 
@@ -80,6 +88,7 @@ void	init_philosophers(t_data *data, t_philo *philo, int i)
 		philo[i].right_fork = i;
 		philo[i].left_fork = (i + 1) % data->nop;
 		philo[i].eat_count = 0;
+		philo[i].last_meal = 0;
 		philo[i].last_meal = 0;
 		philo[i].data = data;
 }
@@ -106,7 +115,7 @@ int	create_run_threads(t_data *data)
 	{
 		if (pthread_join(thread[i], NULL) != 0)
 			return (printf("Failed to join thread %d\n", i));
-		//printf("Thread %d has finished execution\n", i);
+		printf("Thread %d has finished execution\n", i);
 	}
 	i = -1;
 	while (++i < data->nop)

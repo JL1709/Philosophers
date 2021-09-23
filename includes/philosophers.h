@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:45:51 by julian            #+#    #+#             */
-/*   Updated: 2021/09/22 16:51:54 by julian           ###   ########.fr       */
+/*   Updated: 2021/09/23 17:50:53 by jludt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,11 @@ typedef struct	s_philo
 {
 	int				id;
 	long long		start_time;
-	int				right_fork;
-	int				left_fork;
+	int				right_fork; // besser lokal
+	int				left_fork; // besser lokal
 	int				eat_count;
 	long long		last_meal;
+	int				died;
 	t_data			*data;
 }				t_philo;
 
