@@ -6,7 +6,7 @@
 /*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:45:51 by julian            #+#    #+#             */
-/*   Updated: 2021/09/23 17:50:53 by jludt            ###   ########.fr       */
+/*   Updated: 2021/09/27 17:08:16 by jludt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,24 +43,24 @@ typedef struct s_data
 	int				tte;
 	int				tts;
 	int				nome;
+	int				died;
 	pthread_mutex_t	mutex_fork[242];
 	pthread_mutex_t	mutex_printing;
+	pthread_mutex_t	mutex_death;
+	pthread_mutex_t	mutex_time;
 }			t_data;
 
 typedef struct	s_philo
 {
 	int				id;
 	long long		start_time;
-	int				right_fork; // besser lokal
-	int				left_fork; // besser lokal
 	int				eat_count;
 	long long		last_meal;
-	int				died;
 	t_data			*data;
 }				t_philo;
 
 int			check_input(int argc, char *argv[]);
 int			ft_atoi(const char *str);
-long long	get_time();
+long long	get_time(void);
 
 #endif
