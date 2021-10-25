@@ -6,7 +6,7 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/10/25 13:43:54 by julian           ###   ########.fr       */
+/*   Updated: 2021/10/25 14:26:43 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,8 @@ int	get_data(int argc, char *argv[], t_data *data)
 		if (data->nome < 1)
 			return (2);
 	}
-	else 
+	else
 		data->nome = -1;
 	data->died = 0;
 	return (0);
 }
-

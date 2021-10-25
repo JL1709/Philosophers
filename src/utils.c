@@ -6,7 +6,7 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/15 09:35:47 by julian            #+#    #+#             */
-/*   Updated: 2021/10/25 13:41:47 by julian           ###   ########.fr       */
+/*   Updated: 2021/10/25 14:26:08 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ int	ft_atoi(const char *str)
 
 void	init_philosophers(t_data *data, t_philo *philo, int i)
 {
-		philo[i].id = i + 1;
-		philo[i].eat_count = data->nome;
-		philo[i].last_meal = 0;
-		philo[i].data = data;
+	philo[i].id = i + 1;
+	philo[i].eat_count = data->nome;
+	philo[i].last_meal = 0;
+	philo[i].data = data;
 }
 
 /*

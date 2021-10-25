@@ -6,7 +6,7 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 13:50:36 by julian            #+#    #+#             */
-/*   Updated: 2021/10/25 13:50:52 by julian           ###   ########.fr       */
+/*   Updated: 2021/10/25 14:15:12 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	*death_checker(void *arg)
 
 	philo = (t_philo *)arg;
 	data = philo->data;
-
 	pthread_mutex_lock(&data->mutex_time);
 	while (get_time() - philo->last_meal <= data->ttd)
 	{
