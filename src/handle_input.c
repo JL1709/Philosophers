@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/09/22 16:25:12 by julian           ###   ########.fr       */
+/*   Updated: 2021/10/25 13:43:54 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	print_error(int i)
 	if (i == 2)
 		printf(YELLOW"All arguments must be positiv numbers!\n"RESET);
 	if (i == 3)
-		printf(YELLOW"Nice try, but go with at least one philosopher.\n"RESET);
+		printf(YELLOW"You need at least one philosopher.\n"RESET);
 }
 
 static int	only_pos_nbrs(int argc, char *argv[])
@@ -78,3 +78,24 @@ int	check_input(int argc, char *argv[])
 	}
 	return (0);
 }
+
+int	get_data(int argc, char *argv[], t_data *data)
+{
+	data->nop = ft_atoi(argv[1]);
+	data->ttd = ft_atoi(argv[2]);
+	data->tte = ft_atoi(argv[3]);
+	data->tts = ft_atoi(argv[4]);
+	if (data->ttd < 0 || data->tte < 0 || data->tts < 0)
+		return (2);
+	if (argc == 6)
+	{
+		data->nome = ft_atoi(argv[5]);
+		if (data->nome < 1)
+			return (2);
+	}
+	else 
+		data->nome = -1;
+	data->died = 0;
+	return (0);
+}
+

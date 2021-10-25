@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
+/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:45:51 by julian            #+#    #+#             */
-/*   Updated: 2021/09/27 17:08:16 by jludt            ###   ########.fr       */
+/*   Updated: 2021/10/25 14:06:45 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct s_data
 	pthread_mutex_t	mutex_time;
 }			t_data;
 
-typedef struct	s_philo
+typedef struct s_philo
 {
 	int				id;
 	long long		start_time;
@@ -60,7 +60,16 @@ typedef struct	s_philo
 }				t_philo;
 
 int			check_input(int argc, char *argv[]);
+int			get_data(int argc, char *argv[], t_data *data);
 int			ft_atoi(const char *str);
 long long	get_time(void);
+void		init_philosophers(t_data *data, t_philo *philo, int i);
+void		optimized_sleep(int stop_sleeping);
+void		printing(t_data *data, t_philo *philo, char *s);
+int			create_mutex(t_data *data);
+int			create_run_threads(t_data *data);
+void		*run_philosopher(void *arg);
+void		eating(t_data *data, t_philo *philo);
+void		*death_checker(void *arg);
 
 #endif

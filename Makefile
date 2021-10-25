@@ -6,7 +6,7 @@
 #    By: julian <julian@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/11 12:13:12 by jludt             #+#    #+#              #
-#    Updated: 2021/09/15 09:36:38 by julian           ###   ########.fr        #
+#    Updated: 2021/10/25 13:53:41 by julian           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,12 @@ OBJ_DIR = ./obj/
 INC_DIR = ./includes/
 
 # Source files and object files
-SRC_FILES =	main.c					\
-			check_input.c			\
+SRC_FILES =	main.c						\
+			check_death.c				\
+			handle_eating.c				\
+			handle_input.c				\
+			handle_mutex_and_threads.c	\
+			run_philosopher.c			\
 			utils.c
 OBJ_FILES = $(SRC_FILES:.c=.o)
 
