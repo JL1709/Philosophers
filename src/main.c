@@ -6,7 +6,7 @@
 /*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/12 15:48:08 by julian            #+#    #+#             */
-/*   Updated: 2021/10/25 14:39:22 by julian           ###   ########.fr       */
+/*   Updated: 2021/10/25 14:41:27 by julian           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,5 @@ int	main(int argc, char *argv[])
 		return (3);
 	if (create_run_threads(&data) != 0)
 		return (4);
-	system("leaks philo");
 	return (0);
 }
