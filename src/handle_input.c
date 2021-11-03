@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_input.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: julian <julian@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jludt <jludt@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/13 11:06:09 by julian            #+#    #+#             */
-/*   Updated: 2021/10/25 14:26:43 by julian           ###   ########.fr       */
+/*   Updated: 2021/11/03 10:08:26 by jludt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ static void	print_error(int i)
 		printf(YELLOW"All arguments must be positiv numbers!\n"RESET);
 	if (i == 3)
 		printf(YELLOW"You need at least one philosopher.\n"RESET);
+	if (i == 4)
+		printf(YELLOW"Limited to 200 Philosophers.\n"RESET);
 }
 
 static int	only_pos_nbrs(int argc, char *argv[])
@@ -75,6 +77,11 @@ int	check_input(int argc, char *argv[])
 	{
 		print_error(3);
 		return (3);
+	}
+	if (ft_atoi(argv[1]) > 200)
+	{
+		print_error(4);
+		return (4);
 	}
 	return (0);
 }
