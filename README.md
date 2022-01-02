@@ -1,6 +1,6 @@
 # Philosophers
 
-This repo provides a programm calle "philo" that simulates the dining philosopher problem using threads an mutexes.  
+This repo provides a programm called "philo" that simulates a modified [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem) using threads an mutexes.  
 
 
 Tested on macOS Monterey.
