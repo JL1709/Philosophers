@@ -20,7 +20,7 @@ make
 
 #### 3)  Run program
 ```
-$>./philo "number_of_philosophers" "time_to_die [ms]" "time_to_eat [ms]" "time_to_sleep [ms]" "number_of_times_each_philosopher_must_eat (optional)"
+$>./philo number_of_philosophers time_to_die time_to_eat time_to_sleep number_of_times_each_philosopher_must_eat(optional)
 ```
 - number_of_philosophers: number of philosophers and also the number of forks.
 - time_to_die : if a philosopher doesn’t start eating ’time_to_die’ milliseconds after starting their last meal or the beginning of the simulation, it dies.
