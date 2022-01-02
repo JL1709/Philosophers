@@ -9,16 +9,16 @@ Tested on macOS Monterey.
 
 #### 1) Clone this repository 
 ```
-git clone git@github.com:JL1709/push_swap.git
+git clone git@github.com:JL1709/Philosophers.git
 ```
 
 #### 2) Run Makfile
 ```
-cd push_swap
+cd Philosophers
 make
 ```
 
 #### 3)  Run program
 ```
-$>./push_swap 2 1 3 6 5 8
+$>./philo
 ```
