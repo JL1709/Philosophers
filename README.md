@@ -26,7 +26,8 @@ $>./philo "number_of_philosophers" "time_to_die [ms]" "time_to_eat [ms]" "time_t
 - time_to_die : if a philosopher doesn’t start eating ’time_to_die’ milliseconds after starting their last meal or the beginning of the simulation, it dies.
 - time_to_eat: time it takes for a philosopher to eat.
 - time_to_sleep: time the philosopher will spend sleeping.
-- number_of_times_each_philosopher_must_eat: argument is optional, if all philosophers eat at least ’number_of_times_each_philosopher_must_eat’ the
-simulation will stop. If not specified, the simulation will stop only at the death of a philosopher.
+- number_of_times_each_philosopher_must_eat: argument is optional, if all philosophers eat at least ’number_of_times_each_philosopher_must_eat’ the simulation will stop. If not specified, the simulation will stop only at the death of a philosopher.  
 Example:
-> $>./philo 5 800 200 200 3
+```
+$>./philo 5 800 200 200 3
+```
